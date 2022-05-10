@@ -1,4 +1,4 @@
-# Wallet Management
+# Wallet Management API
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [Setup](#setup)

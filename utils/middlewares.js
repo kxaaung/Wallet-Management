@@ -15,7 +15,18 @@ const unknowEndPoint = (req, res) => {
     })
 }
 
+const errorHandler = (error, req, res, next) => {
+    if(error.name === 'CastError') {
+        return res.status(400).send({ errors: {message: 'malformatted id'} })
+    } else if(error.name === 'MongoServerError') {
+        return res.status(400).json({ errors: {message: error.message} })
+    }
+
+    next(error)
+}
+
 module.exports = {
     unknowEndPoint,
-    requestLogger
+    requestLogger,
+    errorHandler
 }

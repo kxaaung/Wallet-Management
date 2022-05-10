@@ -5,6 +5,10 @@ const config = require('./utils/config')
 const app = express()
 const middlewares = require('./utils/middlewares')
 const mongoose = require("mongoose")
+require('express-async-errors')
+
+const userRouter = require('./routes/user')
+const walletRouter = require('./routes/wallet')
 
 // connect to MongoDb
 logger.info('connecting to ', process.env.MONGODB_URI)
@@ -22,11 +26,11 @@ app.use(middlewares.requestLogger)
 app.use(express.json())
 
 // routes
-app.get('/api', (req, res) => { 
-    res.send('Hello world')
-})
+app.use('/api/users', userRouter)
+app.use('/api/wallets', walletRouter)
 
 // middlewares
 app.use(middlewares.unknowEndPoint)
+app.use(middlewares.errorHandler)
 
  module.exports = app

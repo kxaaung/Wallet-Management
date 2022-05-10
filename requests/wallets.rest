@@ -1,0 +1,12 @@
+PUT http://localhost:3001/api/wallets/deposit/627813f9a0ec5726ff172dd5
+Content-Type: application/json
+
+{
+    "amount": "200"
+}
+
+###
+GET http://localhost:3001/api/wallets/
+
+###
+DELETE http://localhost:3001/api/wallets/627813f9a0ec5726ff172dd5

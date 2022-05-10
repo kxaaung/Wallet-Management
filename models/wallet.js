@@ -5,13 +5,15 @@ const walletSchema = new mongoose.Schema({
         type: Number,
         default: 0
     },
-    user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
-    }
+    deposits: [
+        {
+            amount: Number,
+            deposited_at: Date,
+        }
+    ]
 })
 
-userSchema.set('toJSON', {
+walletSchema.set('toJSON', {
     transform: (document, returnedObject) => {
         returnedObject.id = returnedObject._id.toString()
         delete returnedObject._id

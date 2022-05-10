@@ -1,0 +1,37 @@
+GET http://localhost:3001/api/users
+
+###
+POST http://localhost:3001/api/users
+Content-Type: application/json
+
+{
+    "role": "Basic",
+    "name": "Testing User",
+    "email": "kyawkyaw@gmail.com",
+    "password": "12345",
+    "address": {
+        "city": "Yangon"
+    }
+}
+
+###
+GET http://localhost:3001/api/users/627804d96c93a04f0f79c77
+
+###
+PUT http://localhost:3001/api/users/627813f9a0ec5726ff172dd7
+Content-Type: application/json
+
+{
+    "name": "Kyaw Kyaw",
+    "address": {
+        "street": "street 19"
+    }
+}
+
+###
+PUT http://localhost:3001/api/users/627813f9a0ec5726ff172dd7/email
+
+{
+    "email": "kyawhtetaung2@gmail.com"
+}
+
